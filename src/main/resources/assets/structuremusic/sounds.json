@@ -1,0 +1,83 @@
+{
+  "music.structure_one": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_two": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_three": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_four": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_five": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_six": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_seven": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_eight": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_nine": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  }
+}
