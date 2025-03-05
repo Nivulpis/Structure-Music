@@ -17,6 +17,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.neoforged.fml.event.config.ModConfigEvent;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(StructureMusic.MOD_ID)
@@ -30,7 +31,6 @@ public class StructureMusic {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
@@ -39,23 +39,37 @@ public class StructureMusic {
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        modContainer.registerConfig(ModConfig.Type.SERVER, StructureMusicConfiguration.CONFIG_SPEC);
+
+        // Register the config loading event listener
+        modEventBus.addListener(this::onConfigLoad);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        // Common setup logic here
     }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        // Add creative tab items here
+    }
 
+    // Event handler for when the config is loaded
+    private void onConfigLoad(ModConfigEvent.Loading event) {
+        if (event.getConfig().getModId().equals(MOD_ID)) {
+            // Now it's safe to access config values
+            LOGGER.info("Config loaded successfully!");
+            // For example, you can access the config values like this:
+            // List<String> musicOne = StructureMusicConfiguration.customMusicOne.get();
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-
+        // Handle server starting event here
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -63,7 +77,7 @@ public class StructureMusic {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            // Client setup logic here
         }
     }
 }
