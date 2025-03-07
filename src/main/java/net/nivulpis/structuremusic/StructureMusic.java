@@ -1,6 +1,10 @@
 package net.nivulpis.structuremusic;
 
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.nivulpis.structuremusic.client.ClientPacketHandler;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.nivulpis.structuremusic.event.StructureMusicEvents;
+import net.nivulpis.structuremusic.networking.PlayerStructureData;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -45,6 +49,8 @@ public class StructureMusic {
 
         // Register the config loading event listener
         modEventBus.addListener(this::onConfigLoad);
+
+        modEventBus.addListener(this::registerPayloads);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -64,6 +70,15 @@ public class StructureMusic {
             // For example, you can access the config values like this:
             // List<String> musicOne = StructureMusicConfiguration.customMusicOne.get();
         }
+    }
+
+    private void registerPayloads(final RegisterPayloadHandlersEvent event) {
+        final PayloadRegistrar registrar = event.registrar("1");
+        registrar.playToClient(
+                PlayerStructureData.TYPE,
+                PlayerStructureData.STREAM_CODEC,
+                (packet, context) -> ClientPacketHandler.handlePlayerStructureData(packet)
+        );
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
