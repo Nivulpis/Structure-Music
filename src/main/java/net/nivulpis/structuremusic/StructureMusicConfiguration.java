@@ -11,7 +11,7 @@ public class StructureMusicConfiguration {
 
     public static ModConfigSpec.ConfigValue<List<? extends String>> customMusicOne, customMusicTwo, customMusicThree, customMusicFour, customMusicFive, customMusicSix, customMusicSeven, customMusicEight, customMusicNine;
 
-    static final StructureMusicConfiguration CONFIG;
+    public static final StructureMusicConfiguration CONFIG;
     static final ModConfigSpec CONFIG_SPEC;
 
     static {

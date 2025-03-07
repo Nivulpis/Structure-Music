@@ -1,44 +1,35 @@
 package net.nivulpis.structuremusic;
 
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.Music;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.levelgen.structure.Structure;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.*;
+import java.util.function.Supplier;
 
 public class AdditionalMusic
 {
-    public static Music STRUCTURE_ONE   = new Music(Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT,
-            ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_one"),
-            SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_one"))), 12000, 24000, false);
-    public static Music STRUCTURE_TWO   = new Music(Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT,
-            ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_two"),
-            SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_two"))), 12000, 24000, false);
-    public static Music STRUCTURE_THREE   = new Music(Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT,
-            ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_three"),
-            SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_three"))), 12000, 24000, false);
-    public static Music STRUCTURE_FOUR   = new Music(Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT,
-            ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_four"),
-            SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_four"))), 12000, 24000, false);
-    public static Music STRUCTURE_FIVE   = new Music(Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT,
-            ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_five"),
-            SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_five"))), 12000, 24000, false);
-    public static Music STRUCTURE_SIX   = new Music(Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT,
-            ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_six"),
-            SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_six"))), 12000, 24000, false);
-    public static Music STRUCTURE_SEVEN   = new Music(Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT,
-            ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_seven"),
-            SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_seven"))), 12000, 24000, false);
-    public static Music STRUCTURE_EIGHT   = new Music(Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT,
-            ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_eight"),
-            SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_eight"))), 12000, 24000, false);
-    public static Music STRUCTURE_NINE   = new Music(Registry.registerForHolder(BuiltInRegistries.SOUND_EVENT,
-            ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_nine"),
-            SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, "music.structure_nine"))), 12000, 24000, false);
+    public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
+            DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, StructureMusic.MOD_ID);
 
-    public static final Map<TagKey<Structure>, List<Music>> taggedMusic = new HashMap<>();
+    public static final Supplier<SoundEvent> STRUCTURE_ONE = registerSoundEvent("music.structure_one");
+    public static final Supplier<SoundEvent> STRUCTURE_TWO = registerSoundEvent("music.structure_two");
+    public static final Supplier<SoundEvent> STRUCTURE_THREE = registerSoundEvent("music.structure_three");
+    public static final Supplier<SoundEvent> STRUCTURE_FOUR = registerSoundEvent("music.structure_four");
+    public static final Supplier<SoundEvent> STRUCTURE_FIVE = registerSoundEvent("music.structure_five");
+    public static final Supplier<SoundEvent> STRUCTURE_SIX = registerSoundEvent("music.structure_six");
+    public static final Supplier<SoundEvent> STRUCTURE_SEVEN = registerSoundEvent("music.structure_seven");
+    public static final Supplier<SoundEvent> STRUCTURE_EIGHT = registerSoundEvent("music.structure_eight");
+    public static final Supplier<SoundEvent> STRUCTURE_NINE = registerSoundEvent("music.structure_nine");
+
+    public static Supplier<SoundEvent> registerSoundEvent(String name) {
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, name);
+    return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(id));
+    }
+
+    public static void register(IEventBus eventBus) {
+        SOUND_EVENTS.register(eventBus);
+    }
+
 }

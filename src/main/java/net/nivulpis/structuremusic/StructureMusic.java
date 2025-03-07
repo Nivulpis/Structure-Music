@@ -39,10 +39,11 @@ public class StructureMusic {
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
-        NeoForge.EVENT_BUS.register(StructureMusicEvents.class);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
+        AdditionalMusic.register(modEventBus);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.SERVER, StructureMusicConfiguration.CONFIG_SPEC);
@@ -51,6 +52,7 @@ public class StructureMusic {
         modEventBus.addListener(this::onConfigLoad);
 
         modEventBus.addListener(this::registerPayloads);
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
