@@ -3,7 +3,6 @@ package net.nivulpis.structuremusic;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.nivulpis.structuremusic.client.ClientPacketHandler;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
-import net.nivulpis.structuremusic.event.StructureMusicEvents;
 import net.nivulpis.structuremusic.networking.PlayerStructureData;
 import org.slf4j.Logger;
 

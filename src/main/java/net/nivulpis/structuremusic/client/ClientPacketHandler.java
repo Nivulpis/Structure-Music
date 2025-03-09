@@ -21,7 +21,7 @@ public class ClientPacketHandler {
             ResourceLocation structureLocation = ResourceLocation.tryParse(data.structure());
 
             if (structureLocation == null) {
-                stopCurrentMusic();
+                stopCurrentMusic(null);
                 return;
             }
 
@@ -30,7 +30,7 @@ public class ClientPacketHandler {
             if (musicToPlay != null) {
                 playMusic(musicToPlay);
             } else {
-                stopCurrentMusic();
+                stopCurrentMusic(null);
             }
         });
     }
@@ -58,20 +58,21 @@ public class ClientPacketHandler {
 
         if (mc.player != null && mc.level != null) {
             if (music != lastPlayedMusic) {
-                stopCurrentMusic();
+                stopCurrentMusic(music);
                 musicManager.startPlaying(new Music(Holder.direct(music), 0, 0, true));
                 lastPlayedMusic = music;
             }
         }
     }
 
-    private static void stopCurrentMusic() {
+    private static void stopCurrentMusic(SoundEvent music) {
         Minecraft mc = Minecraft.getInstance();
         MusicManager musicManager = mc.getMusicManager();
 
-        if (lastPlayedMusic != null) {
+        if (lastPlayedMusic != music) {
             musicManager.stopPlaying();
-            lastPlayedMusic = null;
+            lastPlayedMusic = music;
         }
     }
+
 }

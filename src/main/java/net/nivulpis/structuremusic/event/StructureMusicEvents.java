@@ -14,6 +14,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.nivulpis.structuremusic.StructureMusicConfiguration;
 import net.nivulpis.structuremusic.networking.PlayerStructureData;
 
 import java.util.HashMap;
@@ -55,17 +56,31 @@ public class StructureMusicEvents {
 
                 if (structureStart.isValid()) {
                     ResourceLocation structureTag = structureKey.location();
-                    setPlayerStructure(player, serverLevel, structureTag);
-                    foundStructure = true;
-                    break;
+
+                    if (isStructureInConfig(structureTag)) {
+                        setPlayerStructure(player, serverLevel, structureTag);
+                        foundStructure = true;
+                        break;
+                    }
                 }
             }
         }
 
-        // If no structure was found, reset the player's stored structure to null
         if (!foundStructure) {
             setPlayerStructure(player, serverLevel, null);
         }
+    }
+
+    private static boolean isStructureInConfig(ResourceLocation structureTag) {
+        return StructureMusicConfiguration.customMusicOne.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicTwo.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicThree.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicFour.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicFive.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicSix.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicSeven.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicEight.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicNine.get().contains(structureTag.toString());
     }
 
 
@@ -82,6 +97,5 @@ public class StructureMusicEvents {
         PlayerStructureData payload = new PlayerStructureData(structureName);
         player.connection.send(new ClientboundCustomPayloadPacket(payload));
     }
-
 
 }
