@@ -54,6 +54,7 @@ public class ClientPacketHandler {
         if (matchesConfig(StructureMusicConfiguration.customMusicSixteen, structure)) return AdditionalMusic.STRUCTURE_SIXTEEN.get();
         if (matchesConfig(StructureMusicConfiguration.customMusicSeventeen, structure)) return AdditionalMusic.STRUCTURE_SEVENTEEN.get();
         if (matchesConfig(StructureMusicConfiguration.customMusicEighteen, structure)) return AdditionalMusic.STRUCTURE_EIGHTEEN.get();
+
         return null;
     }
 

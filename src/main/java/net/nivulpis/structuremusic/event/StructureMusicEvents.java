@@ -25,15 +25,10 @@ import java.util.Optional;
 @EventBusSubscriber(modid = "structuremusic")
 public class StructureMusicEvents {
     private static final Map<ServerPlayer, ResourceLocation> playerStructure = new HashMap<>();
-    private static int tickCounter = 0;
-    private static final int CHECK_INTERVAL = 100;
 
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
-        if (tickCounter++ < CHECK_INTERVAL) return;
-
-        tickCounter = 0;
         checkPlayerStructure(player);
     }
 
@@ -92,7 +87,6 @@ public class StructureMusicEvents {
                 StructureMusicConfiguration.customMusicEighteen.get().contains(structureTag.toString());
     }
 
-
     private static void setPlayerStructure(ServerPlayer player, Level world, ResourceLocation newStructure) {
         ResourceLocation oldTag = playerStructure.get(player);
 
@@ -106,5 +100,4 @@ public class StructureMusicEvents {
         PlayerStructureData payload = new PlayerStructureData(structureName);
         player.connection.send(new ClientboundCustomPayloadPacket(payload));
     }
-
 }
