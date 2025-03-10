@@ -79,5 +79,86 @@
         "volume": 0.4
       }
     ]
+  },
+  "music.structure_ten": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_eleven": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_twelve": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_thirteen": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_fourteen": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_fifteen": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_sixteen": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_seventeen": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.structure_eighteen": {
+    "sounds": [
+      {
+        "name": "music/game/eld_unknown",
+        "stream": true,
+        "volume": 0.4
+      }
+    ]
   }
 }

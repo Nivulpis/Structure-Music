@@ -45,6 +45,15 @@ public class ClientPacketHandler {
         if (matchesConfig(StructureMusicConfiguration.customMusicSeven, structure)) return AdditionalMusic.STRUCTURE_SEVEN.get();
         if (matchesConfig(StructureMusicConfiguration.customMusicEight, structure)) return AdditionalMusic.STRUCTURE_EIGHT.get();
         if (matchesConfig(StructureMusicConfiguration.customMusicNine, structure)) return AdditionalMusic.STRUCTURE_NINE.get();
+        if (matchesConfig(StructureMusicConfiguration.customMusicTen, structure)) return AdditionalMusic.STRUCTURE_TEN.get();
+        if (matchesConfig(StructureMusicConfiguration.customMusicEleven, structure)) return AdditionalMusic.STRUCTURE_ELEVEN.get();
+        if (matchesConfig(StructureMusicConfiguration.customMusicTwelve, structure)) return AdditionalMusic.STRUCTURE_TWELVE.get();
+        if (matchesConfig(StructureMusicConfiguration.customMusicThirteen, structure)) return AdditionalMusic.STRUCTURE_THIRTEEN.get();
+        if (matchesConfig(StructureMusicConfiguration.customMusicFourteen, structure)) return AdditionalMusic.STRUCTURE_FOURTEEN.get();
+        if (matchesConfig(StructureMusicConfiguration.customMusicFifteen, structure)) return AdditionalMusic.STRUCTURE_FIFTEEN.get();
+        if (matchesConfig(StructureMusicConfiguration.customMusicSixteen, structure)) return AdditionalMusic.STRUCTURE_SIXTEEN.get();
+        if (matchesConfig(StructureMusicConfiguration.customMusicSeventeen, structure)) return AdditionalMusic.STRUCTURE_SEVENTEEN.get();
+        if (matchesConfig(StructureMusicConfiguration.customMusicEighteen, structure)) return AdditionalMusic.STRUCTURE_EIGHTEEN.get();
         return null;
     }
 

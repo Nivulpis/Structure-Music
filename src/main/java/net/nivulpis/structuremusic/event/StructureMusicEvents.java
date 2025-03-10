@@ -80,7 +80,16 @@ public class StructureMusicEvents {
                 StructureMusicConfiguration.customMusicSix.get().contains(structureTag.toString()) ||
                 StructureMusicConfiguration.customMusicSeven.get().contains(structureTag.toString()) ||
                 StructureMusicConfiguration.customMusicEight.get().contains(structureTag.toString()) ||
-                StructureMusicConfiguration.customMusicNine.get().contains(structureTag.toString());
+                StructureMusicConfiguration.customMusicNine.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicTen.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicEleven.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicTwelve.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicThirteen.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicFourteen.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicFifteen.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicSixteen.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicSeventeen.get().contains(structureTag.toString()) ||
+                StructureMusicConfiguration.customMusicEighteen.get().contains(structureTag.toString());
     }
 
 

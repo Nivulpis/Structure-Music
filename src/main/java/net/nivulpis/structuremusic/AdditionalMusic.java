@@ -22,6 +22,16 @@ public class AdditionalMusic
     public static final Supplier<SoundEvent> STRUCTURE_SEVEN = registerSoundEvent("music.structure_seven");
     public static final Supplier<SoundEvent> STRUCTURE_EIGHT = registerSoundEvent("music.structure_eight");
     public static final Supplier<SoundEvent> STRUCTURE_NINE = registerSoundEvent("music.structure_nine");
+    public static final Supplier<SoundEvent> STRUCTURE_TEN = registerSoundEvent("music.structure_ten");
+    public static final Supplier<SoundEvent> STRUCTURE_ELEVEN = registerSoundEvent("music.structure_eleven");
+    public static final Supplier<SoundEvent> STRUCTURE_TWELVE = registerSoundEvent("music.structure_twelve");
+    public static final Supplier<SoundEvent> STRUCTURE_THIRTEEN = registerSoundEvent("music.structure_thirteen");
+    public static final Supplier<SoundEvent> STRUCTURE_FOURTEEN = registerSoundEvent("music.structure_fourteen");
+    public static final Supplier<SoundEvent> STRUCTURE_FIFTEEN = registerSoundEvent("music.structure_fifteen");
+    public static final Supplier<SoundEvent> STRUCTURE_SIXTEEN = registerSoundEvent("music.structure_sixteen");
+    public static final Supplier<SoundEvent> STRUCTURE_SEVENTEEN = registerSoundEvent("music.structure_seventeen");
+    public static final Supplier<SoundEvent> STRUCTURE_EIGHTEEN = registerSoundEvent("music.structure_eighteen");
+
 
     public static Supplier<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(StructureMusic.MOD_ID, name);
